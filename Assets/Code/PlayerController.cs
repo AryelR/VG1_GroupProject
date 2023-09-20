@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Move player automatically to the right
-        _rigidbody2D.AddForce(Vector2.right * automaticMovementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        //_rigidbody2D.AddForce(Vector2.right * automaticMovementSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
         //Speed player down
         if (Input.GetKey(KeyCode.A)) {
