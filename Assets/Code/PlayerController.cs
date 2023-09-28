@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     //Outlet
     Rigidbody2D _rigidbody2D;
+    public static PlayerController instance;
 
     //State Tracking
     public int jumpsLeft;
@@ -19,8 +20,11 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float fallMultiplier;
     public float lowJumpMultiplier;
-    
 
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Methods
     void Start() {
