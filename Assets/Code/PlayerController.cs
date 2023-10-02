@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     //Outlet
     Rigidbody2D _rigidbody2D;
     public static PlayerController instance;
+    private new ParticleSystem particleSystem;
 
     //State Tracking
     public int jumpsLeft;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     // Methods
     void Start() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        particleSystem = GetComponent<ParticleSystem>();
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
     }
@@ -75,6 +77,9 @@ public class PlayerController : MonoBehaviour {
 
         //set speed
         speed = _rigidbody2D.velocity.magnitude;
+
+        var main = particleSystem.main;
+        main.startSpeed = speed;
     }
 
     private void OnCollisionStay2D(Collision2D other) {
