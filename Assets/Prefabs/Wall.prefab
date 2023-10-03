@@ -189,7 +189,7 @@ MonoBehaviour:
   shakeDistance: 18
   lightShakeVelocity: 0.01
   mediumShakeVelocity: 0.02
-  heavyShakeVelocity: 0.08
+  heavyShakeVelocity: 0.045
 --- !u!1 &7166372076178822159
 GameObject:
   m_ObjectHideFlags: 0
