@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D _rigidbody2D;
     public static PlayerController instance;
     private new ParticleSystem particleSystem;
+    Animator animator;
 
     //State Tracking
     public int jumpsLeft;
@@ -33,7 +34,21 @@ public class PlayerController : MonoBehaviour {
         particleSystem = GetComponent<ParticleSystem>();
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
+        animator = gameObject.GetComponent<Animator>();
     }
+
+    
+    private void FixedUpdate() {
+        //update synced with physics engine
+        animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
+        if (_rigidbody2D.velocity.magnitude > 0) {
+            animator.speed = _rigidbody2D.velocity.magnitude / 3f;
+        }
+        else {
+            animator.speed = 1f;
+        }
+    }
+    
 
     void Update() {     
         //Move player automatically to the right
@@ -86,7 +101,7 @@ public class PlayerController : MonoBehaviour {
         //check that we collided with ground
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             //check what is directly below our character's feet
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.7f);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.85f);
             //Debug.DrawRay(transform.position, Vector2.down * 0.7f); //visualize raycast
 
             //We might have multiple things below our character's feet
