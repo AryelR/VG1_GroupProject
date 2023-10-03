@@ -110,8 +110,8 @@ MonoBehaviour:
   m_UseCameraSpace: 1
   m_ReactionSettings:
     m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-    m_AmplitudeGain: 4
-    m_FrequencyGain: 3
+    m_AmplitudeGain: 2
+    m_FrequencyGain: 1
     m_Duration: 0.5
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &8570989861192679111
@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 2.79, y: 4.4, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
+  m_TrackedObjectOffset: {x: -1.54, y: 4.4, z: 0}
+  m_LookaheadTime: 0.5
+  m_LookaheadSmoothing: 0.8
+  m_LookaheadIgnoreY: 1
   m_XDamping: 1
   m_YDamping: 2
   m_ZDamping: 1
