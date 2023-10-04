@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class KillingObstacle : MonoBehaviour
 {
+    //outlet
+    private Animator animator;
+
+    //config
+    public int damage;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<PlayerController>())
+        //check if colliding with player who is not invincible or already hit
+        var player = other.gameObject.GetComponent<PlayerController>();
+        if (player && !(player.isInvincible || player.isHit))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            player.health -= damage;
+            //kill player
+            player.Die();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

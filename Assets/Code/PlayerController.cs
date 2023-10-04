@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
     public int jumpsLeft;
     public float speed;
     public float currentMaxSpeed;
+    public int health;
+    public bool isHit;
+    public bool isInvincible;
 
     //config
     public float acceleration;
@@ -50,7 +53,13 @@ public class PlayerController : MonoBehaviour {
     }
     
 
-    void Update() {     
+    void Update() {
+        //do nothing if hit
+        if (isHit) {
+            print("explode");
+            return;
+        }
+        
         //Move player automatically to the right
         _rigidbody2D.AddForce(Vector2.right * acceleration * Time.deltaTime, ForceMode2D.Impulse);
 
@@ -115,5 +124,34 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void Die() {
+        if(health <= 0) {
+            //die die
+        }
+        else {
+            Debug.Log("die");
+            animator.SetTrigger("isHit");
+        }
+    }
+    
+    //functions called by animator at start of respective anim
+    public void setIsHit() {
+        isHit = true;
+        particleSystem.Pause();
+    }
+
+    public void setIsInvincible() {
+        animator.ResetTrigger("isHit");
+        isInvincible = true;
+        isHit = false;
+    }
+
+    public void setRun() {
+        isInvincible = false;
+        isHit = false;
+        isHit = false;
+        isInvincible = false;
     }
 }

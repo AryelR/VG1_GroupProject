@@ -14,14 +14,6 @@ public class MovingEnemy : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.GetComponent<PlayerController>())
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-
     // Update is called once per frame
     public float speed; // Adjust the speed as needed
     private float timer = 0.0f;

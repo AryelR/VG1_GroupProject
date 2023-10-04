@@ -167,6 +167,7 @@ MonoBehaviour:
   jumpsLeft: 1
   speed: 0
   currentMaxSpeed: 0
+  health: 6
   acceleration: 18.75
   maxSpeed: 9
   slowDownSpeed: 6
