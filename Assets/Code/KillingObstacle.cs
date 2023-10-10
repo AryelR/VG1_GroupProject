@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class KillingObstacle : MonoBehaviour
 {
-    //outlet
-    private Animator animator;
-
     //config
     public double damage = 0.5;
 
@@ -18,21 +15,9 @@ public class KillingObstacle : MonoBehaviour
         if (player && !(player.isInvincible || player.isHit))
         {
             player.health -= damage;
-            //kill player
+            //kill or hurt player
             player.Die();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

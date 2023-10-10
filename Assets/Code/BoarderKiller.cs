@@ -11,12 +11,6 @@ public class BoarderKiller : MonoBehaviour
             if (other.gameObject.GetComponent<PlayerController>())
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
             }
-
-
-
-
         }
-   
 }
