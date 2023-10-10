@@ -9,7 +9,7 @@ public class KillingObstacle : MonoBehaviour
     private Animator animator;
 
     //config
-    public int damage;
+    public double damage = 0.5;
 
     void OnTriggerEnter2D(Collider2D other)
     {

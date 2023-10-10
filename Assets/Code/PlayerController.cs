@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
     private new ParticleSystem particleSystem;
     Animator animator;
+    HealthController healthController;
 
     //State Tracking
     public int jumpsLeft;
     public float speed;
     public float currentMaxSpeed;
-    public int health;
+    public double health;
+    public double maxHealth;
     public bool isHit;
     public bool isInvincible;
 
@@ -38,6 +40,9 @@ public class PlayerController : MonoBehaviour {
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
         animator = gameObject.GetComponent<Animator>();
+        //draw hearts
+        healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
+        healthController.DrawHearts(health, maxHealth);
     }
 
     
@@ -56,7 +61,6 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         //do nothing if hit
         if (isHit) {
-            print("explode");
             return;
         }
         
@@ -127,11 +131,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Die() {
+        healthController.DrawHearts(health, maxHealth);
         if(health <= 0) {
             //die die
         }
         else {
-            Debug.Log("die");
             animator.SetTrigger("isHit");
         }
     }

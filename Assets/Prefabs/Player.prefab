@@ -122,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0038032532, y: 0}
-  m_Size: {x: 1.2672272, y: 1.4117647}
+  m_Offset: {x: -0.0038032532, y: -0.11}
+  m_Size: {x: 1.2672272, y: 1.2672272}
   m_Direction: 0
 --- !u!50 &551245746310152995
 Rigidbody2D:
@@ -167,7 +167,10 @@ MonoBehaviour:
   jumpsLeft: 1
   speed: 0
   currentMaxSpeed: 0
-  health: 6
+  health: 3
+  maxHealth: 3
+  isHit: 0
+  isInvincible: 0
   acceleration: 18.75
   maxSpeed: 9
   slowDownSpeed: 6
