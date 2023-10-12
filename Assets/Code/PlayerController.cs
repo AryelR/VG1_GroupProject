@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -79,6 +80,11 @@ public class PlayerController : MonoBehaviour {
         //Speed player up
         if (Input.GetKeyDown(KeyCode.D)) {
             currentMaxSpeed = speedUpSpeed;
+        }
+
+        //Exit Level
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("Level Map");
         }
 
         //jump
