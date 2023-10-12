@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class MovingEnemy : MonoBehaviour
 {
     Rigidbody2D _rigidbody2D;
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class MovingEnemy : MonoBehaviour
         // Move forward for 5 seconds
         if (movingForward)
         {
+            sprite.flipX = true;
             transform.position += new Vector3(1f * Time.deltaTime, 0, 0);
             timer += Time.deltaTime;
 
@@ -36,6 +38,7 @@ public class MovingEnemy : MonoBehaviour
         // Move backward for 5 seconds
         else
         {
+            sprite.flipX = false;
             transform.position -= new Vector3(1f * Time.deltaTime, 0, 0);
             timer += Time.deltaTime;
 
