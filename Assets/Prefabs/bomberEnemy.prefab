@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6245721563950841247}
   - component: {fileID: 9142670029739720855}
   - component: {fileID: 124892980799899052}
+  - component: {fileID: 9104827994484784477}
   m_Layer: 0
   m_Name: bomberEnemy
   m_TagString: Untagged
@@ -147,3 +148,24 @@ MonoBehaviour:
   bullet: {fileID: 2003924515035257942, guid: f89db4607a8241c41a95134c957d9197, type: 3}
   shootPoint: {fileID: 0}
   fireRate: 1
+--- !u!95 &9104827994484784477
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185268428833222327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66e547e40fb1e5648ba4b37626eeb4e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
