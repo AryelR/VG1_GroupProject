@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed;
     public float slowDownSpeed;
     public float speedUpSpeed;
-    public float jumpForce;
+    public static float jumpForce = 7f;
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
