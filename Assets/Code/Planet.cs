@@ -26,24 +26,33 @@ public class Planet : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void Update()
     {
         // iterate through all birds
-        foreach (var bird in birds)
-        {
-            // Since transform.position is a Vector3 but bird.position is a Vector2 you now have to cast
-            var directionOfBirdFromPlanet = ((Vector2)transform.position - bird.position).normalized;
+        // if(Input.GetKeyDown(KeyCode.Q))
+        // {
+            foreach (var bird in birds)
+            {
+                //if (Input.GetKeyDown(KeyCode.Q))
+                //{
+                var directionOfBirdFromPlanet = ((Vector2)transform.position - bird.position).normalized;
 
-            // Adds the force towards the center
-            bird.AddForce(directionOfBirdFromPlanet * gravitationalForce);
-        }
+                // Adds the force towards the center
+
+                bird.AddForce(directionOfBirdFromPlanet * gravitationalForce);
+                // }
+
+            }
+        // }
+
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag != "Player")
+        if(other.tag == "Ceiling" && other != null)
         {
-            //_rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         //check if colliding with player who is not invincible or already hit
 
