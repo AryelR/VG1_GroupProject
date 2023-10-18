@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour {
     public bool isInvincible = false;
     public static bool autorunning = false;
 
+    //stat tracking for end of game
+    public float totalJumps = 0;
+
     //config
     public double startingHealth;
     public double startingMaxHealth;
@@ -90,6 +93,7 @@ public class PlayerController : MonoBehaviour {
             if (jumpsLeft > 0) {
                 jumpsLeft--;
                 _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                totalJumps++;
             }
         }
 
@@ -190,17 +194,5 @@ public class PlayerController : MonoBehaviour {
     public void setRun() {
         isInvincible = false;
         isHit = false;
-    }
-
-    public void setAutorun() {
-        autorunning = true;
-    }
-
-    public void setHealth(double newHealth) {
-        health = newHealth;
-    }
-
-    public void setMaxHealth(double newMaxHealth) {  
-        maxHealth = newMaxHealth; 
     }
 }
