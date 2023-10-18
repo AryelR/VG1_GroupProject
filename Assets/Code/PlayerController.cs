@@ -15,22 +15,25 @@ public class PlayerController : MonoBehaviour {
     public int jumpsLeft;
     public float speed;
     public float currentMaxSpeed;
-    public double health;
-    public double maxHealth;
-    public bool isHit;
-    public bool isInvincible;
+    public static double health;
+    public static double maxHealth;
+    public bool isHit = false;
+    public bool isInvincible = false;
+    public static bool autorunning = false;
 
     //config
+    public double startingHealth;
+    public double startingMaxHealth;
+    public float movementSpeed;
+    public static float jumpForce = 7f;
     public float acceleration;
     public float maxSpeed;
     public float slowDownSpeed;
     public float speedUpSpeed;
-    public static float jumpForce = 7f;
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
-    void Awake()
-    {
+    void Awake() {
         instance = this;
     }
 
@@ -41,12 +44,17 @@ public class PlayerController : MonoBehaviour {
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
         animator = gameObject.GetComponent<Animator>();
-        //draw hearts
+        //set health and draw hearts
+        if(health == 0) {
+            // health is initially initialized to 0, set it to starting health if that's the case
+            health = startingHealth;
+            maxHealth = startingMaxHealth;
+        }
         healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
         healthController.DrawHearts(health, maxHealth);
     }
 
-    
+
     private void FixedUpdate() {
         //update synced with physics engine
         animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
@@ -57,33 +65,23 @@ public class PlayerController : MonoBehaviour {
             animator.speed = 1f;
         }
     }
-    
+
 
     void Update() {
         //do nothing if hit
         if (isHit) {
             return;
         }
-        
-        //Move player automatically to the right
-        _rigidbody2D.AddForce(Vector2.right * acceleration * Time.deltaTime, ForceMode2D.Impulse);
 
-        //No input, reset to base speed 
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) {
-            currentMaxSpeed = maxSpeed;
+        if (autorunning) {
+            Autorun();
         }
-
-        //Slow player down
-        if (Input.GetKeyDown(KeyCode.A)) {
-            currentMaxSpeed = slowDownSpeed;
-        }
-        //Speed player up
-        if (Input.GetKeyDown(KeyCode.D)) {
-            currentMaxSpeed = speedUpSpeed;
+        else {
+            Run();
         }
 
         //Exit Level
-        if(Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene("Level Map");
         }
 
@@ -99,8 +97,8 @@ public class PlayerController : MonoBehaviour {
         //if button is not long pressed, do short jump
         //from: https://www.youtube.com/watch?v=7KiK0Aqtmzc
         if (_rigidbody2D.velocity.y < 0) {
-            _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier-1) * Time.deltaTime;
-        }else if(_rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump")) {
+            _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        } else if (_rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump")) {
             _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
@@ -136,16 +134,46 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void Autorun() {
+
+        //Move player automatically to the right
+        _rigidbody2D.AddForce(Vector2.right * acceleration * Time.deltaTime, ForceMode2D.Impulse);
+
+        //No input, reset to base speed 
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) {
+            currentMaxSpeed = maxSpeed;
+        }
+
+        //Slow player down
+        if (Input.GetKeyDown(KeyCode.A)) {
+            currentMaxSpeed = slowDownSpeed;
+        }
+        //Speed player up
+        if (Input.GetKeyDown(KeyCode.D)) {
+            currentMaxSpeed = speedUpSpeed;
+        }
+    }
+
+    private void Run() {
+        //Speed player down
+        if (Input.GetKey(KeyCode.A)) {
+            _rigidbody2D.AddForce(Vector2.left * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        }
+        //Speed player up
+        if (Input.GetKey(KeyCode.D)) {
+            _rigidbody2D.AddForce(Vector2.right * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        }
+    }
     public void Die() {
         healthController.DrawHearts(health, maxHealth);
-        if(health <= 0) {
+        if (health <= 0) {
             //die die
         }
         else {
             animator.SetTrigger("isHit");
         }
     }
-    
+
     //functions called by animator at start of respective anim
     public void setIsHit() {
         isHit = true;
@@ -156,12 +184,23 @@ public class PlayerController : MonoBehaviour {
         animator.ResetTrigger("isHit");
         isInvincible = true;
         isHit = false;
+        particleSystem.Play();
     }
 
     public void setRun() {
         isInvincible = false;
         isHit = false;
-        isHit = false;
-        isInvincible = false;
+    }
+
+    public void setAutorun() {
+        autorunning = true;
+    }
+
+    public void setHealth(double newHealth) {
+        health = newHealth;
+    }
+
+    public void setMaxHealth(double newMaxHealth) {  
+        maxHealth = newMaxHealth; 
     }
 }

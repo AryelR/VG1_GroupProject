@@ -77,7 +77,7 @@ namespace Game
                 {
                     var player = GameObject.Find("Player").GetComponent<PlayerController>();
                     //hurt player
-                    player.health -= damage;
+                    PlayerController.health -= damage;
                     player.Die();
                     //move wall back
                     transform.Translate(new Vector3(-9*moveDistance, 0, 0));

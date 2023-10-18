@@ -167,15 +167,15 @@ MonoBehaviour:
   jumpsLeft: 1
   speed: 0
   currentMaxSpeed: 0
-  health: 3
-  maxHealth: 3
   isHit: 0
   isInvincible: 0
+  startingHealth: 2.5
+  startingMaxHealth: 3
+  movementSpeed: 12
   acceleration: 18.75
   maxSpeed: 9
   slowDownSpeed: 6
   speedUpSpeed: 11
-  jumpForce: 11.25
   fallMultiplier: 2.5
   lowJumpMultiplier: 3.5
 --- !u!198 &2153121692275493278

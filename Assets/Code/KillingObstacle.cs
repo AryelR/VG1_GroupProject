@@ -14,7 +14,7 @@ public class KillingObstacle : MonoBehaviour
         var player = other.gameObject.GetComponent<PlayerController>();
         if (player && !(player.isInvincible || player.isHit))
         {
-            player.health -= damage;
+            PlayerController.health -= damage;
             //kill or hurt player
             player.Die();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
