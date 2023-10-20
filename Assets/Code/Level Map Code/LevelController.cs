@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class LevelController : MonoBehaviour
 {
     //variables
-    public string levelName;
+    public  string levelName;
     bool selected;
 
     void Start()

@@ -16,7 +16,7 @@ public class NextLevelTrigger : MonoBehaviour
             }
             */
             Debug.Log(MenuController.current_level);
-            SceneManager.LoadScene("Level Map");
+            SceneManager.LoadScene("PowerUp");
         }
     }
 }
