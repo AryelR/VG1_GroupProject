@@ -33,7 +33,7 @@ public class LevelController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //check if colliding with player      
-        if (other.gameObject.GetComponent<TopDownPlayerController>())
+        if (other.gameObject.GetComponent<TopDownPlayerController>() || other.gameObject.GetComponent<PlayerController>())
         {    
             //set colliding variable so that if enter is pressed, new level is loaded
             selected = true;
@@ -45,7 +45,7 @@ public class LevelController : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         //check if not colliding with player      
-        if (other.gameObject.GetComponent<TopDownPlayerController>())
+        if (other.gameObject.GetComponent<TopDownPlayerController>() || other.gameObject.GetComponent<PlayerController>())
         {
             //level no longer selected
             selected = false;
