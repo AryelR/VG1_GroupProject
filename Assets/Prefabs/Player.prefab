@@ -169,9 +169,9 @@ MonoBehaviour:
   currentMaxSpeed: 0
   isHit: 0
   isInvincible: 0
-  startingHealth: 2.5
+  totalJumps: 0
+  startingHealth: 3
   startingMaxHealth: 3
-  movementSpeed: 12
   acceleration: 18.75
   maxSpeed: 9
   slowDownSpeed: 6

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     private new ParticleSystem particleSystem;
     Animator animator;
     HealthController healthController;
+    SpriteRenderer sprite;
 
     //State Tracking
     public int jumpsLeft;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     public double startingHealth;
     public double startingMaxHealth;
     public static float movementSpeed = 12f;
-    public static float jumpForce = 7f;
+    public static float jumpForce = 9f;
     public float acceleration;
     public float maxSpeed;
     public float slowDownSpeed;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         particleSystem = GetComponent<ParticleSystem>();
+        sprite = GetComponent<SpriteRenderer>();
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
         animator = gameObject.GetComponent<Animator>();
@@ -161,10 +163,13 @@ public class PlayerController : MonoBehaviour {
     private void Run() {
         //Speed player down
         if (Input.GetKey(KeyCode.A)) {
+            sprite.flipX = false;
             _rigidbody2D.AddForce(Vector2.left * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            
         }
         //Speed player up
         if (Input.GetKey(KeyCode.D)) {
+            sprite.flipX = true;
             _rigidbody2D.AddForce(Vector2.right * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
