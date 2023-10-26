@@ -410,8 +410,8 @@ GameObject:
   - component: {fileID: 7060127154594008673}
   - component: {fileID: 6581836361389747887}
   - component: {fileID: 5173738401998391412}
-  - component: {fileID: 6616934936310241607}
   - component: {fileID: 2140600597507711436}
+  - component: {fileID: 1153570220702865916}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -585,18 +585,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &6616934936310241607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2493554153232154817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97ddc42c77d74ee08b1f339fbbe2a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!19719996 &2140600597507711436
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -633,6 +621,19 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1153570220702865916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493554153232154817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d28cf40aabb949bda698041005df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5
 --- !u!1 &5787920907346973012
 GameObject:
   m_ObjectHideFlags: 0

@@ -473,7 +473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46462822
+      value: -0.46677113
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -704,7 +704,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.995892
+      value: -9.996358
       objectReference: {fileID: 0}
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3202,8 +3202,8 @@ GameObject:
   - component: {fileID: 9126755790900580065}
   - component: {fileID: 4901391357628034607}
   - component: {fileID: 6385703631980415220}
-  - component: {fileID: 4937721387508881863}
   - component: {fileID: 209044450773279052}
+  - component: {fileID: 9126755790900580066}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -3633,18 +3633,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &4937721387508881863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452017682470813761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97ddc42c77d74ee08b1f339fbbe2a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4993721107641432411
 GameObject:
   m_ObjectHideFlags: 0
@@ -45680,6 +45668,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3056760261499563101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9126755790900580066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452017682470813761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d28cf40aabb949bda698041005df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

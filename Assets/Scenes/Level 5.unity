@@ -763,11 +763,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4195948
+      value: -1.4147749
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5015885
+      value: 1.5016142
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1367,8 +1367,8 @@ GameObject:
   - component: {fileID: 8916271773925481887}
   - component: {fileID: 4688538040457723217}
   - component: {fileID: 6740382755922156426}
-  - component: {fileID: 4724973690304137913}
   - component: {fileID: 572688514193191474}
+  - component: {fileID: 8916271773925481888}
   m_Layer: 6
   m_Name: Lava
   m_TagString: Untagged
@@ -4726,18 +4726,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &4724973690304137913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4097303176302793535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97ddc42c77d74ee08b1f339fbbe2a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5338096706061386410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,7 +4859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.102048
+      value: -8.100997
       objectReference: {fileID: 0}
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7952,6 +7940,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3422734318651572003}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8916271773925481888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097303176302793535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d28cf40aabb949bda698041005df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5
 --- !u!1839735485 &9008262764542994661
 Tilemap:
   m_ObjectHideFlags: 0
