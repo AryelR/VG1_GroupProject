@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     SpriteRenderer sprite;
 
     //State Tracking
-    public int jumpsLeft;
+    int jumpsLeft;
     public float speed;
     public float currentMaxSpeed;
     public static double health;
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     public float totalJumps = 0;
 
     //config
+    public int jumps;
     public double startingHealth;
     public double startingMaxHealth;
     public static float movementSpeed = 12f;
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             if (jumpsLeft > 0) {
                 jumpsLeft--;
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 totalJumps++;
             }
@@ -113,7 +115,7 @@ public class PlayerController : MonoBehaviour {
             Mathf.Clamp(_rigidbody2D.velocity.x, -currentMaxSpeed, currentMaxSpeed),
             _rigidbody2D.velocity.y);
 
-        //set speed
+        //set speed tracker
         speed = _rigidbody2D.velocity.magnitude;
 
         var main = particleSystem.main;
@@ -134,7 +136,7 @@ public class PlayerController : MonoBehaviour {
                 //check that we collided with ground below our feet
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) {
                     //reset jump count
-                    jumpsLeft = 1;
+                    jumpsLeft = jumps;
                 }
             }
         }

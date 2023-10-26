@@ -164,12 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16029250ece54c947a03dd84eb7bfb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpsLeft: 1
   speed: 0
   currentMaxSpeed: 0
   isHit: 0
   isInvincible: 0
   totalJumps: 0
+  jumps: 2
   startingHealth: 3
   startingMaxHealth: 3
   acceleration: 18.75
