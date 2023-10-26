@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Mass: 0.75
   m_LinearDrag: 1
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 1.75
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -176,7 +176,7 @@ MonoBehaviour:
   maxSpeed: 9
   slowDownSpeed: 6
   speedUpSpeed: 11
-  fallMultiplier: 2.5
+  fallMultiplier: 3
   lowJumpMultiplier: 3.5
 --- !u!198 &2153121692275493278
 ParticleSystem:
