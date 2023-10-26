@@ -10,7 +10,7 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         //hide wall and text
-        GameObject.Find("HiddenUntilTrigger").SetActive(false);
+        hidden.SetActive(false);
     }
 
 }

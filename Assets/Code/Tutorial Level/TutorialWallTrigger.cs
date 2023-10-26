@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialWallTrigger : MonoBehaviour
 {
+    //variables
+    public GameObject hidden;
     void OnTriggerEnter2D(Collider2D other)
     {
         //check if colliding with player
@@ -11,7 +13,7 @@ public class TutorialWallTrigger : MonoBehaviour
         if (player)
         {
             //show hidden
-            GameObject.Find("HiddenUntilTrigger").SetActive(true);
+            hidden.SetActive(true);
         }
     }
 }
