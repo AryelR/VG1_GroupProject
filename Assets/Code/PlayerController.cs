@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
     public bool isHit = false;
     public bool isInvincible = false;
     public static bool autorunning = false;
+    public static float movementSpeed;
+    public static float jumpForce;
 
     //stat tracking for end of game
     public float totalJumps = 0;
@@ -29,8 +31,8 @@ public class PlayerController : MonoBehaviour {
     public int jumps;
     public double startingHealth;
     public double startingMaxHealth;
-    public static float movementSpeed = 12f;
-    public static float jumpForce = 9f;
+    public float startingMovementSpeed = 12f;
+    public float startingJumpForce = 9f;
     public float acceleration;
     public float maxSpeed;
     public float slowDownSpeed;
@@ -50,11 +52,13 @@ public class PlayerController : MonoBehaviour {
         //initialize maxspeed
         currentMaxSpeed = maxSpeed;
         animator = gameObject.GetComponent<Animator>();
-        //set health and draw hearts
+        //set variables for starting char: health, speed, jump
         if(health == 0) {
             // health is initially initialized to 0, set it to starting health if that's the case
             health = startingHealth;
             maxHealth = startingMaxHealth;
+            movementSpeed = startingMovementSpeed;
+            jumpForce = startingJumpForce;
         }
         healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
         healthController.DrawHearts(health, maxHealth);
@@ -178,7 +182,8 @@ public class PlayerController : MonoBehaviour {
     public void Die() {
         healthController.DrawHearts(health, maxHealth);
         if (health <= 0) {
-            //die die
+            Reset();
+            SceneManager.LoadScene("Death");
         }
         else {
             animator.SetTrigger("isHit");
@@ -201,5 +206,13 @@ public class PlayerController : MonoBehaviour {
     public void setRun() {
         isInvincible = false;
         isHit = false;
+    }
+
+    public void Reset()
+    {
+        health = startingHealth;
+        maxHealth = startingMaxHealth;
+        movementSpeed = startingMovementSpeed;
+        jumpForce = startingJumpForce;
     }
 }
