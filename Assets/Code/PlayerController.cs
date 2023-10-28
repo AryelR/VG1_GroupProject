@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
+
+
     void Awake() {
         instance = this;
     }
@@ -143,6 +145,15 @@ public class PlayerController : MonoBehaviour {
                     jumpsLeft = jumps;
                 }
             }
+        }
+
+
+
+        if (other.gameObject.CompareTag("SpeedPowerUp"))
+        {
+            currentMaxSpeed = 100f;
+            acceleration = 100f;
+            Destroy(other.gameObject);
         }
     }
 
