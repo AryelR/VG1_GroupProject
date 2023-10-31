@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Drawing;
 
 public class PlayerController : MonoBehaviour {
     //Outlet
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     Animator animator;
     HealthController healthController;
     SpriteRenderer sprite;
+    DeathOverlayController deathOverlayController;
 
     //State Tracking
     int jumpsLeft;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour {
         }
         healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
         healthController.DrawHearts(health, maxHealth);
+        deathOverlayController = GameObject.Find("Death Overlay").GetComponent<DeathOverlayController>();
     }
 
 
@@ -193,8 +196,16 @@ public class PlayerController : MonoBehaviour {
     public void Die() {
         healthController.DrawHearts(health, maxHealth);
         if (health <= 0) {
+            //add death ui to scene 
+            deathOverlayController.showOverlay();
+            //SceneManager.LoadScene("Death");
+            //slow down time and hide player and health ui
+            Time.timeScale = 0f;
+            sprite.color = new UnityEngine.Color(1f, 1f, 1f, 0f);
+            GameObject.Find("HeartContainer").transform.localScale = new Vector3(0, 0, 0);
+            //reset upgrades and health
             Reset();
-            SceneManager.LoadScene("Death");
+            
         }
         else {
             animator.SetTrigger("isHit");
