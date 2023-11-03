@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     public static float jumpForce;
 
     //stat tracking for end of game
-    public float totalJumps = 0;
+    public static float totalJumps = 0;
 
     //config
     public int jumps;

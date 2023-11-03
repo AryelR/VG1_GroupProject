@@ -21,6 +21,8 @@ public class DeathScreenController : MonoBehaviour
     {
         //revert speed 
         Time.timeScale = 1.0f;
+        //reset timer
+        DeathOverlayController.seconds = 0;
         //reload the starting map
         SceneManager.LoadScene("Level Map");
     }
