@@ -62,6 +62,8 @@ public class LevelController : MonoBehaviour
             //if enter is pressed, enter level
             if (Input.GetKey(KeyCode.Space))
             {
+                //save player's last position
+                TopDownPlayerController.lastPosition = gameObject.transform.position;
                 //load selected scene
                 SceneManager.LoadScene(levelName);
             }
