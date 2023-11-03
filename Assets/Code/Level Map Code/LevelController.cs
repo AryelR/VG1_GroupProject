@@ -19,14 +19,24 @@ public class LevelController : MonoBehaviour
     }
     void Start()
     {
+        //Debug.Log(gameManager.Levels[3]);
+        
         for(int i = 0; i < gameManager.Levels.Count; i++)
         {
-            Debug.Log(gameManager.Levels[i].name);
+           // Debug.Log(gameManager.Levels[i]);
         }
+
+        for(int i = 0;i < gameManager.completedLevels.Count;i++) {
+            Debug.Log(gameManager.completedLevels[i]);
+
+        }
+
         selected = false;
+        //hide popup
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
         Canvas canvas = gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<Canvas>();
+        //get completed image
         Image image = canvas.transform.GetChild(2).GetComponent<Image>();
         if(image != null )
         {
