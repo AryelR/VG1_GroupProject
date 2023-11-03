@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     public int jumps;
     public double startingHealth;
     public double startingMaxHealth;
-    public float startingMovementSpeed = 12f;
+    public float startingMovementSpeed = 15f;
     public float startingJumpForce = 9f;
     public float acceleration;
     public float maxSpeed;
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour {
             _rigidbody2D.velocity.y);
 
         //set speed tracker
-        speed = _rigidbody2D.velocity.magnitude;
+        speed = _rigidbody2D.velocity.x;
 
         var main = particleSystem.main;
         main.startSpeed = speed;
