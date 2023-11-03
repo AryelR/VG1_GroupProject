@@ -15,6 +15,26 @@ public class NextLevelTrigger : MonoBehaviour
                 MenuController.current_level++;
             }
             */
+            string current_level = "Level " + MenuController.current_level;
+            for(int i = 0; i < gameManager.Levels.Count; i++)
+            {
+                
+                if (gameManager.Levels[i] != null)
+                {
+                    GameObject Level = gameManager.Levels[i];
+                    if (Level.name.Equals(current_level))
+                    {
+                        gameManager.completedLevels.Add(Level);
+
+                    }
+                }
+                
+            }
+            
+            for(int i = 0; i < gameManager.completedLevels.Count;i++)
+            {
+                Debug.Log(gameManager.completedLevels[i].name);
+            }
             Debug.Log(MenuController.current_level);
             SceneManager.LoadScene("PowerUp");
         }
