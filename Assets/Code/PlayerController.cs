@@ -158,6 +158,11 @@ public class PlayerController : MonoBehaviour {
             acceleration = 100f;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("HealthPowerUp"))
+        {
+            health = startingHealth;
+        }
     }
 
     private void Autorun() {

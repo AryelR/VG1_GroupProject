@@ -11,8 +11,6 @@ public class GrapplingGun : MonoBehaviour
     public GameObject grapplingHookPrefab;
     public GameObject hook;
 
-
-
     public float hookSpeed = 30f;
 
     private bool isGrappling = false;
@@ -66,6 +64,8 @@ public class GrapplingGun : MonoBehaviour
 
         isGrappling = true;
     }
+
+
 
     void ReleaseHook()
     {
