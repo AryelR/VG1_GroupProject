@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ceiling
   - SpeedPowerUp
+  - HealthPowerUp
   layers:
   - Default
   - TransparentFX
