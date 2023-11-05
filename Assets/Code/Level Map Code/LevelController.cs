@@ -20,6 +20,8 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         //Debug.Log(gameManager.Levels[3]);
+        Debug.Log("Levels: " + gameManager.Levels.Count);
+        Debug.Log("Completed: " + gameManager.completedLevels.Count);
         
         for(int i = 0; i < gameManager.Levels.Count; i++)
         {
@@ -38,18 +40,28 @@ public class LevelController : MonoBehaviour
         Canvas canvas = gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<Canvas>();
         //get completed image
         Image image = canvas.transform.GetChild(2).GetComponent<Image>();
-        if(image != null )
-        {
-            if (gameManager.completedLevels.Contains(gameObject))
-            {
 
-                image.gameObject.SetActive(true);
-            }
-            else
+        string current_level = "Level " + MenuController.current_level.ToString();
+        bool set_active = false;
+        for (int i = 0; i < gameManager.completedLevels.Count; i++)
+        {
+            GameObject Level = gameManager.completedLevels[i];
+            if (Level.name.Equals(current_level))
             {
-                image.gameObject.SetActive(false);
+                set_active = true;
+
             }
         }
+            if (set_active)
+        {
+
+            image.gameObject.SetActive(true);
+        }
+        else
+        {
+            image.gameObject.SetActive(false);
+        }
+
         
 
     }

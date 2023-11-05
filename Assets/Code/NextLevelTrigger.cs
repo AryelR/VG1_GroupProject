@@ -15,13 +15,14 @@ public class NextLevelTrigger : MonoBehaviour
                 MenuController.current_level++;
             }
             */
-            string current_level = "Level " + MenuController.current_level;
+            string current_level = "Level " + MenuController.current_level.ToString();
             for(int i = 0; i < gameManager.Levels.Count; i++)
             {
                 
                 if (gameManager.Levels[i] != null)
                 {
                     GameObject Level = gameManager.Levels[i];
+                    Debug.Log(Level);
                     if (Level.name.Equals(current_level))
                     {
                         gameManager.completedLevels.Add(Level);
