@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     public static bool autorunning = false;
     public static float movementSpeed;
     public static float jumpForce;
+    public bool isDead = false;
 
     //stat tracking for end of game
     public static float totalJumps = 0;
@@ -84,11 +85,16 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         //do nothing if hit
-        if (isHit) {
+        if (isHit)
+        {
             return;
         }
 
-        if (autorunning) {
+        if (isDead)
+        {
+            StartCoroutine(SlowDownTime(1.0f, 0.0f, 3.0f));
+        }
+        else if (autorunning) {
             Autorun();
         }
         else {
@@ -201,11 +207,11 @@ public class PlayerController : MonoBehaviour {
     public void Die() {
         healthController.DrawHearts(health, maxHealth);
         if (health <= 0) {
+            //set to stop movement and slow down the game
+            isDead = true;
+            animator.SetTrigger("isHit");
             //add death ui to scene 
             deathOverlayController.showOverlay();
-            //SceneManager.LoadScene("Death");
-            //slow down time and hide player and health ui
-            Time.timeScale = 0f;
             sprite.color = new UnityEngine.Color(1f, 1f, 1f, 0f);
             GameObject.Find("HeartContainer").transform.localScale = new Vector3(0, 0, 0);
             //reset upgrades and health
@@ -241,5 +247,22 @@ public class PlayerController : MonoBehaviour {
         maxHealth = startingMaxHealth;
         movementSpeed = startingMovementSpeed;
         jumpForce = startingJumpForce;
+        //isDead = false;
+    }
+
+    IEnumerator SlowDownTime(float start, float end, float time)    
+    {
+        float lastTime = Time.realtimeSinceStartup;
+        float timer = 0.0f;
+
+        while (timer < time)
+        {
+            Time.timeScale = Mathf.Lerp(start, end, timer / time);
+            timer += (Time.realtimeSinceStartup - lastTime);
+            lastTime = Time.realtimeSinceStartup;
+            yield return null;
+        }
+
+        Time.timeScale = end;
     }
 }
