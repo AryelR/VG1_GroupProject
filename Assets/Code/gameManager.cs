@@ -5,7 +5,7 @@ public class gameManager : MonoBehaviour
 {
     public static List<GameObject> Levels = new List<GameObject>();
     public static List<GameObject> completedLevels = new List<GameObject>();
-
+    public static Dictionary<int, bool> levels = new Dictionary<int, bool>();
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

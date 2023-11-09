@@ -12,10 +12,15 @@ public class LevelController : MonoBehaviour
     
     public string levelName;
     bool selected;
+    public int ID;
 
     private void Awake()
     {
-        gameManager.Levels.Add(gameObject);
+        if(!gameManager.Levels.Contains(gameObject))
+        {
+            gameManager.Levels.Add(gameObject);
+        }
+        
     }
     void Start()
     {
