@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     SpriteRenderer sprite;
     DeathOverlayController deathOverlayController;
     CameraController cameraController;
+    public static int level = -1;
 
     //State Tracking
     int jumpsLeft;

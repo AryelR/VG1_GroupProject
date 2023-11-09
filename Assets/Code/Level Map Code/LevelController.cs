@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using UnityEditorInternal;
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,31 +15,28 @@ public class LevelController : MonoBehaviour
     public string levelName;
     bool selected;
     public int ID;
+    public static List<int> Levels = new List<int>();
+    public static Dictionary<int, bool> completedLevels = new Dictionary<int, bool>();
 
     private void Awake()
     {
-        if(!gameManager.Levels.Contains(gameObject))
+        //print completed Levels
+        foreach (var value in completedLevels.Values)
         {
-            gameManager.Levels.Add(gameObject);
+            Debug.Log(value);
         }
-        
+
     }
     void Start()
     {
-        //Debug.Log(gameManager.Levels[3]);
-        Debug.Log("Levels: " + gameManager.Levels.Count);
-        Debug.Log("Completed: " + gameManager.completedLevels.Count);
-        
-        for(int i = 0; i < gameManager.Levels.Count; i++)
+        if (!Levels.Contains(ID))
         {
-           // Debug.Log(gameManager.Levels[i]);
+            Levels.Add(ID);
         }
-
-        for(int i = 0;i < gameManager.completedLevels.Count;i++) {
-            Debug.Log(gameManager.completedLevels[i]);
-
+        if (!completedLevels.ContainsKey(ID))
+        {
+            completedLevels[ID] = false;
         }
-
         selected = false;
         //hide popup
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -48,16 +47,9 @@ public class LevelController : MonoBehaviour
 
         string current_level = "Level " + MenuController.current_level.ToString();
         bool set_active = false;
-        for (int i = 0; i < gameManager.completedLevels.Count; i++)
-        {
-            GameObject Level = gameManager.completedLevels[i];
-            if (Level.name.Equals(current_level))
-            {
-                set_active = true;
 
-            }
-        }
-            if (set_active)
+        set_active = completedLevels[ID];
+        if (set_active)
         {
 
             image.gameObject.SetActive(true);
@@ -82,6 +74,7 @@ public class LevelController : MonoBehaviour
                 //save player's last position
                 TopDownPlayerController.lastPosition = gameObject.transform.position;
                 //load selected scene
+                PlayerController.level = ID;
                 SceneManager.LoadScene(levelName);
             }
         }
