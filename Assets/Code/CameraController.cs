@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public float cameraZoomMax = 7f;
     public float cameraZoomMin = 8f;
     public bool zooming = true;
+    public bool active = true;
     private CinemachineVirtualCamera camera;
     private CinemachineConfiner confiner;
 
@@ -19,13 +20,15 @@ public class CameraController : MonoBehaviour
         camera = GetComponent<CinemachineVirtualCamera>();
         //confiner = GetComponent<CinemachineConfiner>();
         player = GameObject.Find("Player");
-        camera.m_Lens.OrthographicSize = cameraZoomMax;
+        if (active)
+            camera.m_Lens.OrthographicSize = cameraZoomMax;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (active)
+        {
             if (zooming)
             {
                 StartCoroutine(zoomIn());
@@ -34,8 +37,7 @@ public class CameraController : MonoBehaviour
             {
                 StartCoroutine(zoomOut());
             }
-        
-        
+        }
         
     }
 
