@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     HealthController healthController;
     SpriteRenderer sprite;
     DeathOverlayController deathOverlayController;
+    CameraController cameraController;
 
     //State Tracking
     int jumpsLeft;
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour {
         healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
         healthController.DrawHearts(health, maxHealth);
         deathOverlayController = GameObject.Find("Death Overlay").GetComponent<DeathOverlayController>();
+        cameraController = GameObject.Find("Virtual Camera").GetComponent<CameraController>();
     }
 
 
@@ -179,33 +181,43 @@ public class PlayerController : MonoBehaviour {
         //No input, reset to base speed 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) {
             currentMaxSpeed = maxSpeed;
+            cameraController.zooming = true;
         }
 
         //Slow player down
         if (Input.GetKeyDown(KeyCode.A)) {
             currentMaxSpeed = slowDownSpeed;
+            cameraController.zooming = true;
         }
         //Speed player up
         if (Input.GetKeyDown(KeyCode.D)) {
             currentMaxSpeed = speedUpSpeed;
+            cameraController.zooming = false;
         }
     }
 
     private void Run() {
-        //Speed player down
+        //Speed player up to left
         if (Input.GetKey(KeyCode.A)) {
             sprite.flipX = false;
             _rigidbody2D.AddForce(Vector2.left * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
-            
+            cameraController.zooming = false;
+
         }
-        //Speed player up
+        //Speed player up to right
         if (Input.GetKey(KeyCode.D)) {
             sprite.flipX = true;
             _rigidbody2D.AddForce(Vector2.right * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            cameraController.zooming = false;
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            cameraController.zooming = true;
         }
     }
     public void Die() {
         healthController.DrawHearts(health, maxHealth);
+        cameraController.zooming = true;
         if (health <= 0) {
             //set to stop movement and slow down the game
             isDead = true;
