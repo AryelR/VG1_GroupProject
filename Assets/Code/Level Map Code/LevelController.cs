@@ -1,11 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using UnityEditorInternal;
-//using UnityEditor.SearchService;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 public class LevelController : MonoBehaviour
