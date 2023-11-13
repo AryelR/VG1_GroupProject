@@ -20,7 +20,20 @@ public class NextLevelTrigger : MonoBehaviour
             {
                 LevelController.completedLevels[currentLevel] = true;
             }
-            SceneManager.LoadScene("PowerUp");
+
+            bool allCompleted = true;
+            foreach(var value in LevelController.completedLevels.Values) 
+            {
+                allCompleted = allCompleted && value;
+            }
+            if (allCompleted)
+            {
+                SceneManager.LoadScene("Win");
+            }
+            else
+            {
+                SceneManager.LoadScene("PowerUp");
+            }
         }
     }
 }
