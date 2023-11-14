@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour {
             _rigidbody2D.AddForce(Vector2.right * movementSpeed * Time.deltaTime, ForceMode2D.Impulse);
             cameraController.zooming = false;
         }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        if ((!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)))
         {
             cameraController.zooming = true;
         }

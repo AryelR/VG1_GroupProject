@@ -25,15 +25,20 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active)
-        {
-            if (zooming)
-            {
-                StartCoroutine(zoomIn());
+        float zoomStep = 0.05f;
+        float smoothness = 1.5f;
+        if (active) {
+            if (zooming) {
+                if (camera.m_Lens.OrthographicSize > cameraZoomMax) {
+                    camera.m_Lens.OrthographicSize -= zoomStep;
+                }
+ 
             }
-            else
-            {
-                StartCoroutine(zoomOut());
+            else {
+                if (camera.m_Lens.OrthographicSize < cameraZoomMin) {
+
+                    camera.m_Lens.OrthographicSize += zoomStep;
+                }
             }
         }
         
@@ -42,7 +47,7 @@ public class CameraController : MonoBehaviour
     //adapted from https://discussions.unity.com/t/zoom-out-depending-on-velocity-speed/233274
     IEnumerator zoomOut()     
     {
-        float zoomStep = 0.002f;
+        float zoomStep = 0.05f;
         float smoothness = 1.5f;
         WaitForSeconds myWait = new WaitForSeconds(smoothness);
 
@@ -56,7 +61,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator zoomIn()
     {
-        float zoomStep = 0.001f;
+        float zoomStep = 0.02f;
         float smoothness = 1f;
         WaitForSeconds myWait = new WaitForSeconds(smoothness);
 
