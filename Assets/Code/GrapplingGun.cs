@@ -18,9 +18,6 @@ public class GrapplingGun : MonoBehaviour
     public List<Rigidbody2D> birds;
     public Rigidbody2D _rb;
 
-    [SerializeField] private float gravitationalForce = 5;
-
-
 
     // Start is called before the first frame update
     void Start()

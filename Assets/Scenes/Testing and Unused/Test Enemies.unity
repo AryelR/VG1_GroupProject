@@ -844,6 +844,8 @@ GameObject:
   - component: {fileID: 1119416330}
   - component: {fileID: 1119416329}
   - component: {fileID: 1119416331}
+  - component: {fileID: 1119416332}
+  - component: {fileID: 1119416333}
   m_Layer: 0
   m_Name: tiles_6
   m_TagString: Untagged
@@ -930,7 +932,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534ce09c09261754e88f05dee7f0294d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
+--- !u!114 &1119416332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119416328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d28cf40aabb949bda698041005df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.1
+--- !u!61 &1119416333
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119416328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.93333334, y: 0.93333334}
+    newSize: {x: 0.93333334, y: 0.93333334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.93333334, y: 0.93333334}
+  m_EdgeRadius: 0
 --- !u!1 &1146546258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1134,6 @@ MonoBehaviour:
   birds:
   - {fileID: 0}
   _rb: {fileID: 1459929620}
-  gravitationalForce: 25
 --- !u!50 &1459929620 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 551245746310152995, guid: fd148a072e36ea04dbd2b01a029b4728, type: 3}
