@@ -43,7 +43,7 @@ public class TowardsEnemy : MonoBehaviour
     {
         // Check if the collision is with a specific tag or layer if needed
         // For example, destroy the object only if it collides with an object tagged as "Player"
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag ("Player"))
         {
             Destroy(gameObject);
         }
