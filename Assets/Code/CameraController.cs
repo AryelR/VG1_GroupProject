@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
     {
         if (active)
         {
-            if (zooming || player.GetComponent<PlayerController>().speed < 0.5)
+            if (zooming || Mathf.Abs(player.GetComponent<PlayerController>().speed) < 0.5)
             {
                 if (camera.m_Lens.OrthographicSize > cameraZoomMax)
                 {
