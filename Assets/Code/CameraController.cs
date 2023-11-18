@@ -1,5 +1,7 @@
 using Cinemachine;
 using System.Collections;
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -8,9 +10,9 @@ public class CameraController : MonoBehaviour
     public float cameraZoomMin = 8f;
     public bool zooming = true;
     public bool active = true;
+    public AnimationCurve zoomInCurve;
+    public AnimationCurve zoomOutCurve;
     private CinemachineVirtualCamera camera;
-    private CinemachineConfiner confiner;
-
     GameObject player;
 
     void Start()
@@ -25,50 +27,34 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float zoomStep = 0.05f;
-        float smoothness = 1.5f;
-        if (active) {
-            if (zooming) {
-                if (camera.m_Lens.OrthographicSize > cameraZoomMax) {
-                    camera.m_Lens.OrthographicSize -= zoomStep;
-                }
- 
-            }
-            else {
-                if (camera.m_Lens.OrthographicSize < cameraZoomMin) {
-
-                    camera.m_Lens.OrthographicSize += zoomStep;
-                }
-            }
-        }
-        
+        cameraZoom();   
     }
-
-    //adapted from https://discussions.unity.com/t/zoom-out-depending-on-velocity-speed/233274
-    IEnumerator zoomOut()     
+    void cameraZoom()
     {
-        float zoomStep = 0.05f;
-        float smoothness = 1.5f;
-        WaitForSeconds myWait = new WaitForSeconds(smoothness);
-
-        while (camera.m_Lens.OrthographicSize < cameraZoomMin)
+        if (active)
         {
+            if (zooming || player.GetComponent<PlayerController>().speed < 0.5)
+            {
+                if (camera.m_Lens.OrthographicSize > cameraZoomMax)
+                {
+                    float normalizedProgress = Mathf.InverseLerp(cameraZoomMin, cameraZoomMax, camera.m_Lens.OrthographicSize);
+                    var easing = zoomInCurve.Evaluate(normalizedProgress);
 
-            camera.m_Lens.OrthographicSize += zoomStep; 
-            yield return myWait;
-        }
-    }
+                    // Use Mathf.Lerp to smoothly interpolate over time
+                    camera.m_Lens.OrthographicSize = Mathf.Lerp(camera.m_Lens.OrthographicSize, cameraZoomMax, easing * Time.deltaTime);
+                }
+            }
+            else
+            {
+                if (camera.m_Lens.OrthographicSize < cameraZoomMin)
+                {
+                    float normalizedProgress = Mathf.InverseLerp(cameraZoomMin, cameraZoomMax, camera.m_Lens.OrthographicSize);
+                    var easing = zoomOutCurve.Evaluate(normalizedProgress);
 
-    IEnumerator zoomIn()
-    {
-        float zoomStep = 0.02f;
-        float smoothness = 1f;
-        WaitForSeconds myWait = new WaitForSeconds(smoothness);
-
-        while (camera.m_Lens.OrthographicSize > cameraZoomMax)
-        {
-            camera.m_Lens.OrthographicSize -= zoomStep; 
-            yield return myWait;
+                    // Use Mathf.Lerp to smoothly interpolate over time
+                    camera.m_Lens.OrthographicSize = Mathf.Lerp(camera.m_Lens.OrthographicSize, cameraZoomMin, easing * Time.deltaTime);
+                }
+            }
         }
     }
 }
