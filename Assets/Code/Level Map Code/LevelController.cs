@@ -70,7 +70,7 @@ public class LevelController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 //save player's last position
-                TopDownPlayerController.lastPosition = gameObject.transform.position;
+                TopDownPlayerController.lastPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f);
                 //load selected scene
                 PlayerController.level = ID;
                 SceneManager.LoadScene(levelName);

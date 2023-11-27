@@ -23,7 +23,10 @@ public class levelsCompleted : MonoBehaviour
         info += levelCompletednumber.ToString();
         info += "/";
         info += numberOfLevels.ToString();
-        levelsInfo.text = info;
+        if(levelsInfo != null ) {
+            levelsInfo.text = info;
+        }
+        
     }
 
     public static void completedLevel()
