@@ -16,11 +16,16 @@ public class NextLevelTrigger : MonoBehaviour
             }
             */
             int currentLevel = PlayerController.level;
+            bool isLevelCompleted = LevelController.completedLevels[currentLevel];
 
             if (LevelController.completedLevels.ContainsKey(currentLevel))
             {
                 LevelController.completedLevels[currentLevel] = true;
-                levelsCompleted.completedLevel();
+                if((!isLevelCompleted && LevelController.completedLevels[currentLevel]))
+                {
+                    levelsCompleted.completedLevel();
+                }
+                
             }
 
             bool allCompleted = true;
@@ -32,7 +37,7 @@ public class NextLevelTrigger : MonoBehaviour
             {
                 SceneManager.LoadScene("Win");
             }
-            else if(SceneManager.GetActiveScene().name == "Tutorial Level") {
+            else if(SceneManager.GetActiveScene().name == "Tutorial Level" || !(!isLevelCompleted && LevelController.completedLevels[currentLevel])) {
                 SceneManager.LoadScene("Level Map");
             }
             else
