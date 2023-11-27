@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef95f2698856ac84fb6defeedf75c699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Tutorial House
+  levelName: Tutorial Level
   ID: 0
 --- !u!61 &3237440
 BoxCollider2D:
@@ -1686,7 +1686,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5941724
+      value: -0.27938622
       objectReference: {fileID: 0}
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2107,7 +2107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: 144}
+  m_AnchoredPosition: {x: -24, y: 129.36}
   m_SizeDelta: {x: 225.48, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408873475
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial/ Gameplay Modifiers
+  m_text: Tutorial Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f2bce11563540a44ca5491d8ea12cd4d, type: 2}
   m_sharedMaterial: {fileID: -5504477382890130940, guid: f2bce11563540a44ca5491d8ea12cd4d, type: 2}
@@ -2297,11 +2297,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59199613
+      value: -0.2811095
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4605646
+      value: -2.5075245
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.z

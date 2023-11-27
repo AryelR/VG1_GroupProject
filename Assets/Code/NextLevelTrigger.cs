@@ -16,6 +16,7 @@ public class NextLevelTrigger : MonoBehaviour
             }
             */
             int currentLevel = PlayerController.level;
+
             if (LevelController.completedLevels.ContainsKey(currentLevel))
             {
                 LevelController.completedLevels[currentLevel] = true;
@@ -30,6 +31,9 @@ public class NextLevelTrigger : MonoBehaviour
             if (allCompleted)
             {
                 SceneManager.LoadScene("Win");
+            }
+            else if(SceneManager.GetActiveScene().name == "Tutorial Level") {
+                SceneManager.LoadScene("Level Map");
             }
             else
             {
