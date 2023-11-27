@@ -501,8 +501,9 @@ GameObject:
   - component: {fileID: 255084440}
   - component: {fileID: 255084442}
   - component: {fileID: 255084441}
+  - component: {fileID: 255084443}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: numberOfLevelsCompleted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,6 +625,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255084439}
   m_CullTransparentMesh: 1
+--- !u!114 &255084443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255084439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b948eddc72f4a243bb73c3db437a9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &391624894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1686,7 +1699,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27938622
+      value: -0.28053683
       objectReference: {fileID: 0}
     - target: {fileID: 4319793032125866553, guid: b31f65d0d7b10e440b4781dd20cb2a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2297,11 +2310,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2811095
+      value: -0.28226107
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5075245
+      value: -2.507586
       objectReference: {fileID: 0}
     - target: {fileID: 702656801975266944, guid: f1b9c2f020254a145a2474b3b9dedef8, type: 3}
       propertyPath: m_LocalPosition.z
