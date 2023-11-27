@@ -19,6 +19,7 @@ public class NextLevelTrigger : MonoBehaviour
             if (LevelController.completedLevels.ContainsKey(currentLevel))
             {
                 LevelController.completedLevels[currentLevel] = true;
+                levelsCompleted.completedLevel();
             }
 
             bool allCompleted = true;
