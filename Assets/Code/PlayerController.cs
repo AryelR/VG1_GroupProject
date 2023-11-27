@@ -238,6 +238,7 @@ public class PlayerController : MonoBehaviour {
 
     //functions called by animator at start of respective anim
     public void setIsHit() {
+        _rigidbody2D.velocity = new Vector2(0, 0);
         isHit = true;
         particleSystem.Pause();
     }
