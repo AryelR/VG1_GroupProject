@@ -29,6 +29,10 @@ public class FlyingEnemy : MonoBehaviour
     private bool movingForward = true;
 
 
+    public Transform selfObject; // Reference to the object itself
+    public Transform otherObject; // Reference to the other object
+
+
     public GameObject bullet;
     public Transform shootPoint;
 
@@ -40,11 +44,17 @@ public class FlyingEnemy : MonoBehaviour
     void Update()
     {
 
-        if (Time.time >= nextFireTime)
+        if (selfObject != null && otherObject != null)
         {
-            shoot();
-            nextFireTime = Time.time + 1.0f / fireRate;
+            float distance = Vector3.Distance(selfObject.position, otherObject.position);
+            if (Time.time >= nextFireTime && distance < 20)
+            {
+                shoot();
+                nextFireTime = Time.time + 1.0f / fireRate;
+            }
         }
+
+
 
         // Move forward for 5 seconds
         if (movingForward)
