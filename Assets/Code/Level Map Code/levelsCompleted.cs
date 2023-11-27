@@ -23,9 +23,9 @@ public class levelsCompleted : MonoBehaviour
         info += levelCompletednumber.ToString();
         info += "/";
         info += numberOfLevels.ToString();
-        //if(levelsInfo != null ) {
+        if(levelsInfo != null ) {
             levelsInfo.text = info;
-        //}
+        }
         
     }
 
