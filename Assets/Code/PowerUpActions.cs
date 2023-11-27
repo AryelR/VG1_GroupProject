@@ -8,13 +8,19 @@ public class PowerUpActions : MonoBehaviour
 {
     public void jump_boost()
     {
-        PlayerController.jumpForce += 3f;
+        PlayerController.jumpForce += 1f;
         SceneManager.LoadScene("Level Map");
     }
 
     public void speed_boost()
     {
-        PlayerController.movementSpeed += 3f;
+        PlayerController.movementSpeed += 1f;
+        SceneManager.LoadScene("Level Map");
+    }
+
+    public void gravity_boost()
+    {
+        PlayerController.movementSpeed += 1f;
         SceneManager.LoadScene("Level Map");
     }
 }

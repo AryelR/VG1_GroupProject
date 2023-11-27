@@ -46,6 +46,18 @@ public class PlayerController : MonoBehaviour {
     public float lowJumpMultiplier;
 
 
+    // gravity
+
+    public GameObject grapplingHookPrefab;
+    public GameObject hook;
+
+    public float hookSpeed = 30f;
+
+    private bool isGrappling = false;
+
+    public List<Rigidbody2D> birds;
+
+
 
     void Awake() {
         instance = this;
@@ -71,6 +83,12 @@ public class PlayerController : MonoBehaviour {
         healthController.DrawHearts(health, maxHealth);
         deathOverlayController = GameObject.Find("Death Overlay").GetComponent<DeathOverlayController>();
         cameraController = GameObject.Find("Virtual Camera").GetComponent<CameraController>();
+
+
+        // Gravity
+        Rigidbody2D birdRigid = GetComponent<Rigidbody2D>();
+        birds[0] = (birdRigid);
+
     }
 
 
@@ -138,6 +156,41 @@ public class PlayerController : MonoBehaviour {
 
         var main = particleSystem.main;
         main.startSpeed = speed;
+
+
+        // gravity grendae
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShootHook();
+        }
+        else if (Input.GetKeyUp(KeyCode.E) && isGrappling)
+        {
+            // Release the hook
+            ReleaseHook();
+        }
+    }
+
+    void ShootHook()
+    {
+        // Calculate a vector for a 45-degree angle to the top right
+        Vector2 hookDirection = Quaternion.Euler(0, 0, -45) * Vector2.up;
+
+
+
+        // Instantiate and shoot the grappling hook in the calculated direction
+        hook = Instantiate(grapplingHookPrefab, transform.position + new Vector3(1f, 1f, 0f), Quaternion.identity);
+        Rigidbody2D hookRB = hook.GetComponent<Rigidbody2D>();
+        hookRB.velocity = hookDirection.normalized * hookSpeed;
+
+        isGrappling = true;
+    }
+
+
+
+    void ReleaseHook()
+    {
+        Destroy(hook);
+        isGrappling = false;
     }
 
     private void OnCollisionStay2D(Collision2D other) {
@@ -227,11 +280,14 @@ public class PlayerController : MonoBehaviour {
             deathOverlayController.showOverlay();
             sprite.color = new UnityEngine.Color(1f, 1f, 1f, 0f);
             GameObject.Find("HeartContainer").transform.localScale = new Vector3(0, 0, 0);
+            // Destroy Gravity Grenade
             //reset upgrades and health
             Reset();
             
         }
         else {
+            ReleaseHook();
+
             animator.SetTrigger("isHit");
         }
     }
