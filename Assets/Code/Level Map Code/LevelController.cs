@@ -54,8 +54,10 @@ public class LevelController : MonoBehaviour
         {
             image.gameObject.SetActive(false);
         }
+        int numLevels = Levels.Count;
+        levelsCompleted.updatestuff(numLevels);
 
-        
+
 
     }
 
