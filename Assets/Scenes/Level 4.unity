@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &111075892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5569907570862343139, guid: 012bb8d9be47bb04caec0fc981aba101, type: 3}
+  m_PrefabInstance: {fileID: 1659091453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!213 &211428317
 Sprite:
   m_ObjectHideFlags: 0
@@ -37030,6 +37035,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124892980799899052, guid: 012bb8d9be47bb04caec0fc981aba101, type: 3}
+      propertyPath: selfObject
+      value: 
+      objectReference: {fileID: 111075892}
+    - target: {fileID: 124892980799899052, guid: 012bb8d9be47bb04caec0fc981aba101, type: 3}
+      propertyPath: otherObject
+      value: 
+      objectReference: {fileID: 1886624473}
     - target: {fileID: 1185268428833222327, guid: 012bb8d9be47bb04caec0fc981aba101, type: 3}
       propertyPath: m_Name
       value: Bomber Enemy
@@ -37297,7 +37310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001689547184381480, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.307064
+      value: -38.304977
       objectReference: {fileID: 0}
     - target: {fileID: 5785548640840462667, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_Follow
@@ -37309,11 +37322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8593392817727181950, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.128563
+      value: -35.11899
       objectReference: {fileID: 0}
     - target: {fileID: 8593392817727181950, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.427214
+      value: -12.42716
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
