@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birds:
   - {fileID: 0}
-  _rb: {fileID: 0}
-  gravitationalForce: 40
+  _rb: {fileID: 749043559913414886}
+  gravitationalForce: 50
