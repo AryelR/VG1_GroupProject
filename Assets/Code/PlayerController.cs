@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     public static float movementSpeed;
     public static float jumpForce;
     public bool isDead = false;
+    public static float gravForce = 5f;
 
     //stat tracking for end of game
     public static float totalJumps = 0;
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour {
     public float speedUpSpeed;
     public float fallMultiplier;
     public float lowJumpMultiplier;
+    public int gravNum;
+
 
 
     // gravity
@@ -51,7 +54,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject grapplingHookPrefab;
     public GameObject hook;
 
-    public float hookSpeed = 30f;
+    public float hookSpeed = 20f;
+
 
     private bool isGrappling = false;
 
@@ -159,20 +163,31 @@ public class PlayerController : MonoBehaviour {
 
 
         // gravity grendae
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && gravNum == 0)
         {
-            ShootHook();
+            ShootHookRight();
         }
         else if (Input.GetKeyUp(KeyCode.E) && isGrappling)
         {
             // Release the hook
             ReleaseHook();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q) && gravNum == 0)
+        {
+            ShootHookLeft();
+        }
+        else if (Input.GetKeyUp(KeyCode.Q) && isGrappling)
+        {
+            // Release the hook
+            ReleaseHook();
+        }
     }
 
-    void ShootHook()
+    void ShootHookRight()
     {
         // Calculate a vector for a 45-degree angle to the top right
+        gravNum = 1;
         Vector2 hookDirection = Quaternion.Euler(0, 0, -45) * Vector2.up;
 
 
@@ -185,12 +200,29 @@ public class PlayerController : MonoBehaviour {
         isGrappling = true;
     }
 
+    void ShootHookLeft()
+    {
+        // Calculate a vector for a 45-degree angle to the top left
+        gravNum = 1;
+        Vector2 hookDirection = Quaternion.Euler(0, 0, 45) * Vector2.up;
+
+
+
+        // Instantiate and shoot the grappling hook in the calculated direction
+        hook = Instantiate(grapplingHookPrefab, transform.position + new Vector3(-1f, 1f, 0f), Quaternion.identity);
+        Rigidbody2D hookRB = hook.GetComponent<Rigidbody2D>();
+        hookRB.velocity = hookDirection.normalized * hookSpeed;
+
+        isGrappling = true;
+    }
+
 
 
     void ReleaseHook()
     {
         Destroy(hook);
         isGrappling = false;
+        gravNum = 0;
     }
 
     private void OnCollisionStay2D(Collision2D other) {

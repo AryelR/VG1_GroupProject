@@ -11,7 +11,7 @@ public class Planet : MonoBehaviour
     //public GameObject bird;
 
     // Make this field adjustable via the Inspector for fine tuning
-    [SerializeField] private float gravitationalForce = 5;
+    //[SerializeField] private float gravitationalForce = 5;
 
     // Your start was redundant
     // 
@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
 
                 // Adds the force towards the center
 
-                bird.AddForce(directionOfBirdFromPlanet * gravitationalForce);
+                bird.AddForce(directionOfBirdFromPlanet * PlayerController.gravForce);
                 // }
 
             }
