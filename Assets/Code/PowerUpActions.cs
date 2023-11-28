@@ -20,7 +20,7 @@ public class PowerUpActions : MonoBehaviour
 
     public void gravity_boost()
     {
-        PlayerController.movementSpeed += 1f;
+        PlayerController.gravForce += 100f;
         SceneManager.LoadScene("Level Map");
     }
 }

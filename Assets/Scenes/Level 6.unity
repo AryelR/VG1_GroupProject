@@ -6298,6 +6298,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6867042649868045661, guid: fd148a072e36ea04dbd2b01a029b4728, type: 3}
+      propertyPath: startingGravForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6867042649868045661, guid: fd148a072e36ea04dbd2b01a029b4728, type: 3}
       propertyPath: grapplingHookPrefab
       value: 
       objectReference: {fileID: 4201248418396065855, guid: afd27c7f03d54a746a54ee0336f43fb0, type: 3}

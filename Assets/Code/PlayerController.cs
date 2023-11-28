@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
     public static float movementSpeed;
     public static float jumpForce;
     public bool isDead = false;
-    public static float gravForce = 5f;
+    public static float gravForce;
 
     //stat tracking for end of game
     public static float totalJumps = 0;
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     public double startingMaxHealth;
     public float startingMovementSpeed = 15f;
     public float startingJumpForce = 9f;
+    public float startingGravForce = 5f;
     public float acceleration;
     public float maxSpeed;
     public float slowDownSpeed;
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour {
             maxHealth = startingMaxHealth;
             movementSpeed = startingMovementSpeed;
             jumpForce = startingJumpForce;
+            gravForce = startingGravForce;
         }
         healthController = GameObject.Find("HeartContainer").GetComponent<HealthController>();
         healthController.DrawHearts(health, maxHealth);
@@ -349,6 +351,7 @@ public class PlayerController : MonoBehaviour {
         maxHealth = startingMaxHealth;
         movementSpeed = startingMovementSpeed;
         jumpForce = startingJumpForce;
+        gravForce = startingGravForce;
         //isDead = false;
     }
 
