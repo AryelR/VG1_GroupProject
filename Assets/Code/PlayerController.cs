@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
     public double startingMaxHealth;
     public float startingMovementSpeed = 15f;
     public float startingJumpForce = 9f;
-    public float startingGravForce = 5f;
+    public float startingGravForce = 30f;
     public float acceleration;
     public float maxSpeed;
     public float slowDownSpeed;
