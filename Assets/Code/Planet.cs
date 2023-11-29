@@ -26,7 +26,7 @@ public class Planet : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // iterate through all birds
         // if(Input.GetKeyDown(KeyCode.Q))

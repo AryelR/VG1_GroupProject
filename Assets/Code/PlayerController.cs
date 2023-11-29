@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     public static float jumpForce;
     public bool isDead = false;
     public static float gravForce;
+    public int gravNadesLeft = 3;
 
     //stat tracking for end of game
     public static float totalJumps = 0;
@@ -165,7 +166,7 @@ public class PlayerController : MonoBehaviour {
 
 
         // gravity grendae
-        if (Input.GetKeyDown(KeyCode.E) && gravNum == 0)
+        if (Input.GetKeyDown(KeyCode.E) && gravNum == 0 && gravNadesLeft > 0)
         {
             ShootHookRight();
         }
@@ -175,7 +176,7 @@ public class PlayerController : MonoBehaviour {
             ReleaseHook();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && gravNum == 0)
+        if (Input.GetKeyDown(KeyCode.Q) && gravNum == 0 && gravNadesLeft > 0)
         {
             ShootHookLeft();
         }
@@ -190,6 +191,7 @@ public class PlayerController : MonoBehaviour {
     {
         // Calculate a vector for a 45-degree angle to the top right
         gravNum = 1;
+        gravNadesLeft -= 1;
         Vector2 hookDirection = Quaternion.Euler(0, 0, -45) * Vector2.up;
 
 
@@ -206,6 +208,7 @@ public class PlayerController : MonoBehaviour {
     {
         // Calculate a vector for a 45-degree angle to the top left
         gravNum = 1;
+        gravNadesLeft -= 1;
         Vector2 hookDirection = Quaternion.Euler(0, 0, 45) * Vector2.up;
 
 

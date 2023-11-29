@@ -5864,7 +5864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001689547184381480, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.285374
+      value: -46.284977
       objectReference: {fileID: 0}
     - target: {fileID: 2001689547184381480, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5928,11 +5928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8593392817727181950, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.414616
+      value: -43.4128
       objectReference: {fileID: 0}
     - target: {fileID: 8593392817727181950, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.559119
+      value: -12.559122
       objectReference: {fileID: 0}
     - target: {fileID: 8593392817727181950, guid: a5a2fb5f10e60034fb0380558b7e1313, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10729,7 +10729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6867042649868045661, guid: fd148a072e36ea04dbd2b01a029b4728, type: 3}
       propertyPath: startingGravForce
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6867042649868045661, guid: fd148a072e36ea04dbd2b01a029b4728, type: 3}
       propertyPath: grapplingHookPrefab
