@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour {
         // Gravity
         Rigidbody2D birdRigid = GetComponent<Rigidbody2D>();
         birds[0] = (birdRigid);
+        gravForce = startingGravForce;
 
     }
 
