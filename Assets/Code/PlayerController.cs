@@ -130,11 +130,6 @@ public class PlayerController : MonoBehaviour {
             Run();
         }
 
-        //Exit Level
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            SceneManager.LoadScene("Level Map");
-        }
-
         //jump
         if (Input.GetButtonDown("Jump")) {
             if (jumpsLeft > 0) {
