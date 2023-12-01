@@ -50,6 +50,11 @@ public class VerticalWall : MonoBehaviour
 
     public void distanceFromPlayer()
     {
+        //no shake
+        if (GameObject.Find("Player").GetComponent<PlayerController>().isDead)
+        {
+            return;
+        }
         //compare front of wall y pos to player y pos
         float distance = GameObject.Find("Player").transform.position.y - (transform.position.y + 1f);
         if (distance <= shakeDistance && distance > shakeDistance / 2)

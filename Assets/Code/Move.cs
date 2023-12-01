@@ -43,10 +43,16 @@ namespace Game
                 transform.Translate(new Vector3(moveDistance, 0, 0));
 
             }
+            
             distanceFromPlayer();
         }
 
         public void distanceFromPlayer() {
+            //no shake
+            if (GameObject.Find("Player").GetComponent<PlayerController>().isDead)
+            {
+                return;
+            }
             //compare front of wall x pos to player x pos
             float distance = GameObject.Find("Player").transform.position.x - transform.position.x;
             if (distance <= shakeDistance && distance > shakeDistance/2) {

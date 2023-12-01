@@ -24,6 +24,8 @@ public class DeathScreenController : MonoBehaviour
         //reset timer
         DeathOverlayController.seconds = 0;
         //reload the starting map
+        //reset upgrades and health
+        GameObject.Find("Player").GetComponent<PlayerController>().Reset();
         SceneManager.LoadScene("Level Map");
     }
 

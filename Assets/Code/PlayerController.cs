@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isDead)
         {
-            StartCoroutine(SlowDownTime(1.0f, 0.0f, 3.0f));
+            //do nothing
         }
         else if (autorunning) {
             Autorun();
@@ -306,6 +306,7 @@ public class PlayerController : MonoBehaviour {
         healthController.DrawHearts(health, maxHealth);
         cameraController.zooming = true;
         if (health <= 0) {
+            StartCoroutine(SlowDownTime(1.0f, 0.01f, 3.0f));
             //set to stop movement and slow down the game
             isDead = true;
             animator.SetTrigger("isHit");
@@ -314,8 +315,6 @@ public class PlayerController : MonoBehaviour {
             sprite.color = new UnityEngine.Color(1f, 1f, 1f, 0f);
             GameObject.Find("HeartContainer").transform.localScale = new Vector3(0, 0, 0);
             // Destroy Gravity Grenade
-            //reset upgrades and health
-            Reset();
             
         }
         else {
@@ -351,22 +350,26 @@ public class PlayerController : MonoBehaviour {
         movementSpeed = startingMovementSpeed;
         jumpForce = startingJumpForce;
         gravForce = startingGravForce;
-        //isDead = false;
+        totalJumps = 0;
+        isDead = false;
     }
 
     IEnumerator SlowDownTime(float start, float end, float time)    
     {
+        
         float lastTime = Time.realtimeSinceStartup;
         float timer = 0.0f;
 
         while (timer < time)
         {
+            Debug.Log('p');
             Time.timeScale = Mathf.Lerp(start, end, timer / time);
             timer += (Time.realtimeSinceStartup - lastTime);
             lastTime = Time.realtimeSinceStartup;
             yield return null;
         }
 
+        Debug.Log("done");
         Time.timeScale = end;
     }
 }
