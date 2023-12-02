@@ -248,7 +248,12 @@ MonoBehaviour:
   - {fileID: 8347510387665026968, guid: 92f09b85dc14ed84aa8350b72b34f24a, type: 3}
   - {fileID: 6751362472193705517, guid: 563a6b27ac97eea429b13bc962c3b6d6, type: 3}
   - {fileID: 6751362472193705517, guid: 46c221159c5253440b3d8b972937d5fc, type: 3}
+  names:
+  - Jump Powerup
+  - Speed Powerup
+  - Gravity Grenade Powerup
   CanvasObject: {fileID: 1660712591}
+  textMeshProPrefab: {fileID: 1964476730840422511, guid: dc26f020d9aa80a438be07206216b9f9, type: 3}
 --- !u!4 &574719375
 Transform:
   m_ObjectHideFlags: 0
