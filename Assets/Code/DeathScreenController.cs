@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeathScreenController : MonoBehaviour
 {
@@ -15,6 +16,15 @@ public class DeathScreenController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void setButtonsInteractable()
+    {
+        Button[] buttons = gameObject.GetComponentsInChildren<Button>();
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
     }
 
     public void Restart()

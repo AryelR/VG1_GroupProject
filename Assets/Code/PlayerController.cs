@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
     public int gravNum;
+    public AudioClip deathSong;
 
 
 
@@ -315,7 +316,17 @@ public class PlayerController : MonoBehaviour {
             sprite.color = new UnityEngine.Color(1f, 1f, 1f, 0f);
             GameObject.Find("HeartContainer").transform.localScale = new Vector3(0, 0, 0);
             // Destroy Gravity Grenade
+
+            //change song
+            GameObject soundManager = GameObject.Find("SoundManager");
+            if (!soundManager)
+            {
+                soundManager = GameObject.Find("Sound Manager");
+            }
+            soundManager.GetComponent<AudioSource>().clip = deathSong;
+            soundManager.GetComponent<AudioSource>().Play();
             
+            GameObject.Find("Death Screen Panel(Clone)").GetComponent<DeathScreenController>().setButtonsInteractable();
         }
         else {
             ReleaseHook();
@@ -362,14 +373,12 @@ public class PlayerController : MonoBehaviour {
 
         while (timer < time)
         {
-            Debug.Log('p');
             Time.timeScale = Mathf.Lerp(start, end, timer / time);
             timer += (Time.realtimeSinceStartup - lastTime);
             lastTime = Time.realtimeSinceStartup;
             yield return null;
         }
 
-        Debug.Log("done");
-        Time.timeScale = end;
+        
     }
 }

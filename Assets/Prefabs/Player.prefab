@@ -169,17 +169,25 @@ MonoBehaviour:
   isHit: 0
   isInvincible: 0
   isDead: 0
+  gravNadesLeft: 3
   jumps: 2
   startingHealth: 3
   startingMaxHealth: 3
   startingMovementSpeed: 15
   startingJumpForce: 9
+  startingGravForce: 30
   acceleration: 18.75
   maxSpeed: 9
   slowDownSpeed: 6
   speedUpSpeed: 11
   fallMultiplier: 3
   lowJumpMultiplier: 3.5
+  gravNum: 0
+  deathSong: {fileID: 8300000, guid: d5428ba3708f84fd893e604dde02c241, type: 3}
+  grapplingHookPrefab: {fileID: 0}
+  hook: {fileID: 0}
+  hookSpeed: 20
+  birds: []
 --- !u!198 &2153121692275493278
 ParticleSystem:
   m_ObjectHideFlags: 0
