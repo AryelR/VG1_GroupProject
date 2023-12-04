@@ -379,6 +379,6 @@ public class PlayerController : MonoBehaviour {
             yield return null;
         }
 
-        
+        Time.timeScale = end;
     }
 }
